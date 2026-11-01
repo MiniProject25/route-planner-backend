@@ -1,9 +1,15 @@
 package com.project.routeplanner.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Coordinates {
-    double lat;
-    double lon;
+    private double lat;
+    private double lon;
 }

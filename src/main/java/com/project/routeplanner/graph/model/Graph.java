@@ -28,6 +28,9 @@ public class Graph {
     }
 
     public void BuildGridIndex() {
+        if (!grid.isEmpty()) {
+            return;
+        }
         for (GraphNode node : nodes.values()) {
             int gridX = (int) (node.getLat() * GRID_SIZE);
             int gridY = (int) (node.getLon() * GRID_SIZE);

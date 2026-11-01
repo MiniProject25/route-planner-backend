@@ -3,6 +3,7 @@ package com.project.routeplanner.parser;
 import com.project.routeplanner.model.OsmNode;
 import com.project.routeplanner.model.OsmWay;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.stereotype.Component;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 @Component
 public class OsmHandler extends DefaultHandler {
     // must listen to SAX events
@@ -26,6 +28,12 @@ public class OsmHandler extends DefaultHandler {
 
     // current way - temporary
     private OsmWay currentWay = null;
+
+    public void reset() {
+        nodes.clear();
+        ways.clear();
+        currentWay = null;
+    }
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) {
